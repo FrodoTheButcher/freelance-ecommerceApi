@@ -3,7 +3,7 @@ services:
     name: ecommerce-api
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn EcommerceApi.wsgi:application"
+    startCommand: gunicorn EcommerceApi.wsgi:application"
     envVars:
       - key: DEBUG
         value: "False"
