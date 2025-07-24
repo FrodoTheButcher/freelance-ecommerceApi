@@ -5,12 +5,14 @@ from .views import (
     UserDetailViewSet,
     ProfileViewSet,
     ProfileDetailViewSet,
-    CustomTokenObtainPairView
+    CustomTokenObtainPairView,
+    RegisterView
 )
 
 urlpatterns = [
     path('users/', UserViewSet.as_view({'get': 'list', 'post': 'create'}), name='user-list'),
     path('users/<int:pk>/', UserDetailViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='user-detail'),
+    path('api/register/', RegisterView.as_view(), name='register'),
 
     path('profiles/', ProfileViewSet.as_view({'get': 'list', 'post': 'create'}), name='profile-list'),
     path('profiles/<int:pk>/', ProfileDetailViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='profile-detail'),

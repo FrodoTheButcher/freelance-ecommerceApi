@@ -25,7 +25,6 @@ SECRET_KEY = "django-insecure-f$jlpb$w9fikjk885q#-_!jlwera^)yq*hq-+pj6rc@4%6*8ka
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -105,7 +104,7 @@ DATABASES = {
     )
 }
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

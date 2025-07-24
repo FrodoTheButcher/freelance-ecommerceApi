@@ -23,9 +23,11 @@ class BookingViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated, IsAdminOrOwner]
 
     def get_queryset(self):
-        if self.request.user.is_staff:
-            return Booking.objects.all()
-        return Booking.objects.filter(customer=self.request.user)
+        user = self.request.user
+        if user.is_authenticated:
+            return Booking.objects.filter(customer=user)
+        return Booking.objects.none()
+
 
     def get_serializer_class(self):
         if self.action in ['update', 'partial_update']:
